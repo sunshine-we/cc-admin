@@ -1,17 +1,18 @@
 <template>
   <el-aside :width="isCollapsed ? '64px' : '220px'" class="sidebar">
+    <!-- Logo 区域 -->
     <div class="logo">
-      <span v-if="!isCollapsed">ccDemo</span>
-      <span v-else>CD</span>
+      <span class="logo-text" v-if="!isCollapsed">ccAdmin</span>
+      <span class="logo-text" v-else>CA</span>
     </div>
+
+    <!-- 菜单 -->
     <el-menu
       :default-active="activeMenu"
       :collapse="isCollapsed"
       :collapse-transition="false"
-      background-color="#304156"
-      text-color="#bfcbd9"
-      active-text-color="#409EFF"
       router
+      class="sidebar-menu"
     >
       <template v-for="item in menuList" :key="item.id">
         <!-- 有子菜单 -->
@@ -63,8 +64,7 @@ onMounted(async () => {
       const res = await getUserMenu(userId)
       menuList.value = res.data || []
     }
-  } catch (e) {
-    // 菜单加载失败使用默认菜单
+  } catch {
     menuList.value = getDefaultMenus()
   }
 
@@ -80,7 +80,7 @@ function getDefaultMenus() {
       id: 1,
       menuName: '仪表盘',
       icon: 'DataBoard',
-      path: '/dashboard'
+      path: '/dashboard',
     },
     {
       id: 2,
@@ -89,34 +89,73 @@ function getDefaultMenus() {
       children: [
         { id: 21, menuName: '用户管理', icon: 'User', path: '/system/user' },
         { id: 22, menuName: '角色管理', icon: 'Avatar', path: '/system/role' },
-        { id: 23, menuName: '菜单管理', icon: 'Menu', path: '/system/menu' }
-      ]
-    }
+        { id: 23, menuName: '菜单管理', icon: 'Menu', path: '/system/menu' },
+      ],
+    },
   ]
 }
 </script>
 
 <style scoped>
 .sidebar {
-  background-color: #304156;
+  background-color: var(--bg-sidebar);
   overflow-y: auto;
   overflow-x: hidden;
-  transition: width 0.3s;
+  transition: width 0.3s ease, background-color 0.3s ease;
 }
 
+/* ---- Logo ---- */
 .logo {
-  height: 60px;
+  height: var(--navbar-height);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--sidebar-logo-bg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background-color 0.3s ease;
 }
 
-.el-menu {
+.logo-text {
+  color: var(--text-sidebar-active);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+/* ---- 菜单 ---- */
+.sidebar-menu {
   border-right: none;
+  background-color: transparent;
+}
+
+/* 菜单项 - 使用 CSS 变量控制颜色 */
+.sidebar-menu :deep(.el-menu-item),
+.sidebar-menu :deep(.el-sub-menu__title) {
+  color: var(--text-sidebar);
+  transition: all 0.2s ease;
+}
+
+.sidebar-menu :deep(.el-menu-item:hover),
+.sidebar-menu :deep(.el-sub-menu__title:hover) {
+  background-color: var(--bg-sidebar-hover);
+  color: var(--text-sidebar-active);
+}
+
+.sidebar-menu :deep(.el-menu-item.is-active) {
+  color: var(--text-sidebar-active);
+  background-color: var(--color-primary);
+}
+
+/* 子菜单背景 */
+.sidebar-menu :deep(.el-menu) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 折叠状态微调 */
+.sidebar-menu.el-menu--collapse :deep(.el-sub-menu__title) {
+  display: flex;
+  justify-content: center;
 }
 </style>

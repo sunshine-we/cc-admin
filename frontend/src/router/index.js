@@ -61,7 +61,7 @@ const router = createRouter({
 // 全局前置守卫 —— Token 认证
 router.beforeEach((to, from, next) => {
   // 设置页面标题
-  document.title = to.meta.title ? `${to.meta.title} - ccDemo` : 'ccDemo'
+  document.title = to.meta.title ? `${to.meta.title} - ccAdmin` : 'ccAdmin'
 
   const token = getToken()
 

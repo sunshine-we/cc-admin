@@ -1,38 +1,161 @@
-/* 全局样式 */
-* {
+/* ============================================
+ * 全局样式
+ * 使用 CSS 变量实现主题换肤
+ * ============================================ */
+
+/* ---- 基础 Reset ---- */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body, #app {
+html,
+body,
+#app {
   height: 100%;
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
     'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  /* ---- 主题过渡动画 ---- */
+  transition: background-color 0.3s ease;
 }
 
 body {
-  background: #f0f2f5;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* 滚动条美化 */
+/* ---- 链接 ---- */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary-light);
+}
+
+/* ---- 滚动条美化（主题适配）---- */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 ::-webkit-scrollbar-thumb {
-  background: #c0c4cc;
+  background: var(--text-placeholder);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #909399;
+  background: var(--text-secondary);
 }
 
-/* 清除浮动 */
+/* ---- 通用布局 ---- */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.toolbar {
+  margin-bottom: 16px;
+}
+
+/* ---- 卡片样式覆盖（深色模式适配）---- */
+.el-card {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.el-card__header {
+  border-bottom-color: var(--border-color-light) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ---- 表格样式覆盖 ---- */
+.el-table {
+  --el-table-bg-color: var(--bg-card);
+  --el-table-tr-bg-color: var(--bg-card);
+  --el-table-header-bg-color: var(--bg-hover);
+  --el-table-border-color: var(--border-color);
+  --el-table-text-color: var(--text-primary);
+  --el-table-header-text-color: var(--text-primary);
+  --el-table-row-hover-bg-color: var(--bg-hover);
+}
+
+/* ---- 对话框样式覆盖 ---- */
+.el-dialog {
+  --el-dialog-bg-color: var(--bg-dialog);
+  background-color: var(--bg-dialog) !important;
+}
+
+/* ---- 输入框样式覆盖 ---- */
+.el-input__wrapper {
+  background-color: var(--bg-input) !important;
+}
+
+.el-textarea__inner {
+  background-color: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ---- 下拉菜单样式覆盖 ---- */
+.el-dropdown-menu {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+.el-dropdown-menu__item {
+  color: var(--text-primary) !important;
+}
+
+.el-dropdown-menu__item:hover {
+  background-color: var(--bg-hover) !important;
+}
+
+/* ---- 分页样式覆盖 ---- */
+.el-pagination {
+  --el-pagination-bg-color: transparent;
+  --el-pagination-text-color: var(--text-regular);
+}
+
+/* ---- 标签样式覆盖 ---- */
+.el-tag {
+  border-color: transparent;
+}
+
+/* ---- 弹出框 ---- */
+.el-popper {
+  color: var(--text-primary);
+}
+
+/* ---- 清除浮动 ---- */
 .clearfix::after {
   content: '';
   display: block;
   clear: both;
+}
+
+/* ---- 通用动画 ---- */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }

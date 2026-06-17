@@ -2,11 +2,11 @@
   <el-container class="main-layout">
     <!-- 侧边栏 -->
     <Sidebar />
-    <el-container>
+    <el-container class="main-container">
       <!-- 顶部导航栏 -->
       <Navbar />
       <!-- 内容区 -->
-      <el-main>
+      <el-main class="main-content">
         <router-view />
       </el-main>
     </el-container>
@@ -21,11 +21,18 @@ import Navbar from './Navbar.vue'
 <style scoped>
 .main-layout {
   height: 100vh;
+  overflow: hidden;
 }
 
-.el-main {
-  background: #f0f2f5;
+.main-container {
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.main-content {
+  background: var(--bg-page);
   padding: 20px;
   overflow-y: auto;
+  transition: background-color 0.3s ease;
 }
 </style>

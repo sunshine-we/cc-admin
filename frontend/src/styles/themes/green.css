@@ -1,0 +1,52 @@
+/* ============================================
+ * 绿色主题
+ * 清新绿色主色调
+ * ============================================ */
+[data-theme='green'] {
+  /* ---- 主色系统 ---- */
+  --color-primary: #059669;
+  --color-primary-light: #10b981;
+  --color-primary-dark: #047857;
+  --color-primary-bg: #ecfdf5;
+
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #6b7280;
+
+  /* ---- 背景色 ---- */
+  --bg-page: #f0fdf4;
+  --bg-container: #ffffff;
+  --bg-sidebar: #064e3b;
+  --bg-sidebar-hover: #065f46;
+  --bg-navbar: #ffffff;
+  --bg-card: #ffffff;
+  --bg-dialog: #ffffff;
+  --bg-input: #ffffff;
+  --bg-hover: #f0fdf4;
+
+  /* ---- 文字色 ---- */
+  --text-primary: #1a2e1a;
+  --text-regular: #4a5e4a;
+  --text-secondary: #90a390;
+  --text-placeholder: #c0d0c0;
+  --text-sidebar: #a7c5a7;
+  --text-sidebar-active: #ffffff;
+  --text-inverse: #ffffff;
+
+  /* ---- 边框 ---- */
+  --border-color: #dcfce7;
+  --border-color-light: #f0fdf4;
+  --border-color-dark: #bbf7d0;
+
+  /* ---- 阴影 ---- */
+  --shadow-sm: 0 1px 2px rgba(5, 150, 105, 0.05);
+  --shadow-base: 0 2px 8px rgba(5, 150, 105, 0.08);
+  --shadow-lg: 0 4px 16px rgba(5, 150, 105, 0.1);
+
+  /* ---- 侧边栏 ---- */
+  --sidebar-logo-bg: #053e2e;
+
+  /* ---- 标签 ---- */
+  --tag-bg: #f0fdf4;
+}

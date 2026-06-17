@@ -1,0 +1,56 @@
+/* ============================================
+ * 深色主题
+ * 配合 Element Plus dark class 使用
+ * ============================================ */
+[data-theme='dark'] {
+  /* ---- 主色系统（暗色下稍微提亮）---- */
+  --color-primary: #409eff;
+  --color-primary-light: #66b1ff;
+  --color-primary-dark: #5da8ff;
+  --color-primary-bg: #1a2a3a;
+
+  --color-success: #85ce61;
+  --color-warning: #ebb563;
+  --color-danger: #f78989;
+  --color-info: #a6a9ad;
+
+  /* ---- 背景色 ---- */
+  --bg-page: #141414;
+  --bg-container: #1d1e1f;
+  --bg-sidebar: #1d1e1f;
+  --bg-sidebar-hover: #2a2b2c;
+  --bg-navbar: #1d1e1f;
+  --bg-card: #242526;
+  --bg-dialog: #242526;
+  --bg-input: #2a2b2c;
+  --bg-hover: #2a2b2c;
+
+  /* ---- 文字色 ---- */
+  --text-primary: #e0e0e0;
+  --text-regular: #c8c9cc;
+  --text-secondary: #969799;
+  --text-placeholder: #5c5e62;
+  --text-sidebar: #a0a0a0;
+  --text-sidebar-active: #ffffff;
+  --text-inverse: #ffffff;
+
+  /* ---- 边框 ---- */
+  --border-color: #3a3a3c;
+  --border-color-light: #2d2e30;
+  --border-color-dark: #4a4a4d;
+
+  /* ---- 阴影 ---- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-base: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.5);
+
+  /* ---- 侧边栏 ---- */
+  --sidebar-logo-bg: #141414;
+
+  /* ---- 标签 ---- */
+  --tag-bg: #2a2b2c;
+
+  /* ---- 滚动条 ---- */
+  --scrollbar-thumb: #4a4a4d;
+  --scrollbar-track: transparent;
+}
