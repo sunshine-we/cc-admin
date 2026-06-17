@@ -1,0 +1,50 @@
+# ====================== 公共配置 ======================
+spring:
+  application:
+    name: ccDemo
+  profiles:
+    active: dev
+
+# 服务器配置
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+# MyBatis Plus 配置
+mybatis-plus:
+  # 实体扫描包
+  type-aliases-package: com.example.ccdemo.modules.*.entity
+  # XML 映射文件路径
+  mapper-locations: classpath:mapper/**/*.xml
+  # 全局配置
+  global-config:
+    db-config:
+      # 主键策略：ASSIGN_ID（雪花算法）
+      id-type: ASSIGN_ID
+      # 逻辑删除字段
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      # 字段填充策略
+      update-strategy: NOT_NULL
+  # 控制台打印 SQL
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 驼峰转下划线
+    map-underscore-to-camel-case: true
+
+# JWT 配置
+jwt:
+  # 密钥（生产环境应使用复杂密钥）
+  secret: ccDemoSecretKey2024ForJwtTokenGenerationMustBeLongEnough
+  # Token 过期时间（毫秒），默认 24 小时
+  expiration: 86400000
+  # Refresh Token 过期时间（毫秒），默认 7 天
+  refresh-expiration: 604800000
+
+# Knife4j 文档配置
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
