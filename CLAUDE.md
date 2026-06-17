@@ -6,6 +6,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 始终使用中文与用户交流。所有对话、解释和代码注释都应使用中文。
 
+## 自动提交规则
+
+每当你完成一个独立功能的开发，或修复完一个 Bug 并验证通过后，必须自动执行 `git add -A` 和 `git commit`，并生成一句简洁的中文 commit message（不超过 50 字）。commit message 请遵循以下约定：
+
+- `feat: xxxx` — 新功能
+- `fix: xxxx` — Bug 修复
+- `refactor: xxxx` — 重构
+- `style: xxxx` — 样式调整
+- `docs: xxxx` — 文档变更
+
 ## 常用命令
 
 ```bash
